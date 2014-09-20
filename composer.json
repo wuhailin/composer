@@ -1,0 +1,17 @@
+{
+    "require":{
+        "yiisoft/yii":"dev-master",
+        "drmabuse/yii-bootstrap-3-module": "dev-master",
+        "drmabuse/yii-bootstrap-3-module": "dev-javascript",
+        "marcovtwout/yii-environment": "5.0.*@dev",
+        "malyshev/yii-debug-toolbar": "dev-master",
+        "uldisn/yii-user": "dev-master",
+        "crisu83/yii-filemanager": "dev-master",
+        "crisu83/yii-seo": "dev-master",
+        "cornernote/gii-tasty-templates": "dev-master",
+        "janisto/yii-mailer": "dev-master",
+        "nineinchnick/yii-exporter": "dev-master",
+        "crisu83/yii-imagemanager": "dev-master",
+        "metalguardian/yii-date-time-picker": "dev-master"
+    }
+}
