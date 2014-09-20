@@ -8,8 +8,17 @@
 
 class IndexController extends CController
 {
+    public function actions()
+    {
+        return [
+            'captcha' => [
+                'class' => 'system.web.widgets.captcha.CCaptchaAction',
+                'minLength' => 4,
+                'maxLength' => 6,
+            ]
+        ];
+    }
     public function actionIndex()
     {
-        echo 'Welcome to Yii';
     }
 } 
