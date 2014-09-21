@@ -20,5 +20,15 @@ class IndexController extends CController
     }
     public function actionIndex()
     {
+        $startTime = microtime(true);
+        Article::model()->findAll();
+        $endTime = microtime(true);
+        echo sprintf('%.4f',$endTime - $startTime);
+        Article::model()->findAll();
+        $endTime = microtime(true);
+        echo sprintf('<br>%.4f', $endTime - $endTime);
+        Article::model()->findAll();
+        $endTime = microtime(true);
+        echo sprintf('<br>%.4f', $endTime - $endTime);
     }
 } 

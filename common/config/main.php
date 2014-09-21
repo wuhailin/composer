@@ -14,9 +14,9 @@ return [
     'configWeb'     => [
         //...
         'aliases'           => [
-            'common' => dirname(__DIR__),
-            'bootstrap' => dirname(dirname(__DIR__)).'/vendor/drmabuse/yii-bootstrap-3-module',
-            'vendor' => dirname(dirname(__DIR__)).'/vendor',
+            'common'    => dirname(__DIR__),
+            'bootstrap' => dirname(dirname(__DIR__)) . '/vendor/drmabuse/yii-bootstrap-3-module',
+            'vendor'    => dirname(dirname(__DIR__)) . '/vendor',
         ],
         'preload'           => ['log'],
         'defaultController' => 'index',
@@ -30,7 +30,7 @@ return [
             'bootstrap.widgets.*',
         ],
         'components'        => [
-            'bootstrap' => [
+            'bootstrap'    => [
                 'class' => 'bootstrap.components.BsApi'
             ],
             'coreMessages' => [
@@ -99,12 +99,19 @@ return [
                     ],
                 ],
             ],
-            'cache'        => [
+            /*'cache'        => [
                 'class' => 'system.caching.CDummyCache',
-            ],
-            'memCache'     => [
+            ],*/
+            'cache'        => [
                 //...
-                'class' => 'system.caching.CMemCache',
+                'class'   => 'system.caching.CMemCache',
+                'servers' => [
+                    [
+                        'host'   => 'localhost',
+                        'port'   => 11211,
+                        'weight' => 50
+                    ],
+                ]
             ],
             'redis'        => [
                 'class' => 'system.caching.CRedisCache',
@@ -120,11 +127,11 @@ return [
                     '<_c:\w+>/<_a:\w+\d*>' => '<_c>/<_a>',
                 ],
             ],
-            'mailer' => [
-                'class' => 'vendor.janisto.yii-mailer.SwiftMailerComponent',
-                'type' => 'smtp',
-                'host' => 'smtp.qq.com',
-                'port' => 465,
+            'mailer'       => [
+                'class'    => 'vendor.janisto.yii-mailer.SwiftMailerComponent',
+                'type'     => 'smtp',
+                'host'     => 'smtp.qq.com',
+                'port'     => 465,
                 'username' => '',
                 'password' => '',
                 'security' => 'ssl',
