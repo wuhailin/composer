@@ -75,20 +75,20 @@ class Article extends \CActiveRecord
 			'id' => 'ID',
 			'category' => '栏目ID',
 			'type' => '类别ID',
-			'orderNO' => '排序ID，以时间戳排序，做到以修改则到最前',
+			'orderNO' => '排序ID',
 			'click' => '点击率',
-			'title' => 'Title',
+			'title' => '标题',
 			'shortTitle' => '短标题',
 			'color' => '标题颜色',
-			'creator' => 'Creator',
-			'source' => 'Source',
-			'picture' => 'Picture',
-			'senddate' => 'Senddate',
+			'creator' => '作者',
+			'source' => '来源',
+			'picture' => '图片',
+			'senddate' => '发送时间',
 			'keyword' => 'Keyword',
 			'scores' => '踩',
 			'goodpost' => '顶',
 			'notpost' => '可否评论',
-			'description' => 'Description',
+			'description' => 'Desc',
 			'addTime' => 'Add Time',
 		);
 	}
@@ -132,6 +132,9 @@ class Article extends \CActiveRecord
 
 		return new \CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+            'sort' => [
+                'defaultOrder' => 'addTime DESC',
+            ]
 		));
 	}
 

@@ -1,5 +1,5 @@
 <?php
-
+namespace common\model;
 /**
  * This is the model class for table "body".
  *
@@ -8,7 +8,7 @@
  * @property string $body
  * @property string $redirect
  */
-class Body extends CActiveRecord
+class Body extends \CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
@@ -68,20 +68,20 @@ class Body extends CActiveRecord
 	 * models according to data in model fields.
 	 * - Pass data provider to CGridView, CListView or any similar widget.
 	 *
-	 * @return CActiveDataProvider the data provider that can return the models
+	 * @return \CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
 	public function search()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria=new CDbCriteria;
+		$criteria=new \CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('body',$this->body,true);
 		$criteria->compare('redirect',$this->redirect,true);
 
-		return new CActiveDataProvider($this, array(
+		return new \CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}

@@ -27,7 +27,6 @@ class IndexController extends \common\component\Controller
 
     public function actionIndex()
     {
-        echo $this->app->language;
         $model = new common\model\Article('search');
         $this->render($this->action->id, [
             'model' => $model,

@@ -1,5 +1,8 @@
 <?php
-
+namespace common\model;
+use CActiveRecord,
+    CDbCriteria,
+    CActiveDataProvider;
 /**
  * This is the model class for table "partner".
  *

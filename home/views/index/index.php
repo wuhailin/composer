@@ -7,7 +7,6 @@
  * @var IndexController $this
  * @var common\model\Article $model
  */
-echo Yii::t('post', 'Tags');
 $this->widget('bootstrap.widgets.TbGridView', [
     'dataProvider' => $model->search(),
     'columns' => [
