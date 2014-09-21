@@ -6,21 +6,20 @@
  * Time: 上午12:19
  */
 return [
-    'yiiPath'       => __DIR__ . '/../../vendor/yiisoft/yii/framework/yii.php',
-    'yiicPath'      => __DIR__ . '/../../vendor/yiisoft/yii/framework/yiic.php',
-    'yiitPath'      => __DIR__ . '/../../vendor/yiisoft/yii/framework/yiit.php',
+    'yiiPath'       => ROOT_PATH . '/vendor/yiisoft/yii/framework/yii.php',
+    'yiicPath'      => ROOT_PATH . '/vendor/yiisoft/yii/framework/yiic.php',
+    'yiitPath'      => ROOT_PATH . '/vendor/yiisoft/yii/framework/yiit.php',
     'yiiDebug'      => true,
     'yiiTraceLevel' => 0,
     'configWeb'     => [
         //...
         'aliases'           => [
-            'common'    => dirname(__DIR__),
-            //'bootstrap' => dirname(dirname(__DIR__)) . '/vendor/drmabuse/yii-bootstrap-3-module',
-            'vendor'    => dirname(dirname(__DIR__)) . '/vendor',
-            'bootstrap' => dirname(__DIR__).'/extension/bootstrap',
+            'common'    => COMMON_PATH,
+            'vendor'    => ROOT_PATH . '/vendor',
+            'bootstrap' => COMMON_PATH . '/extension/bootstrap',
         ],
         'language'          => 'zh_cn',
-        'timeZone' => 'Asia/Shanghai',
+        'timeZone'          => 'Asia/Shanghai',
         'preload'           => ['log'],
         'defaultController' => 'index',
         'import'            => [
@@ -38,10 +37,10 @@ return [
                 'class' => 'bootstrap.components.Bootstrap'
             ],
             'coreMessages' => [
-                'basePath' => __DIR__ . '/../messages',
+                'basePath' => COMMON_PATH . D . 'messages',
             ],
             'assetManager' => [
-                'basePath' => __DIR__ . '/../../home/www/assets',
+                'basePath' => ROOT_PATH . D . 'home/www/assets',
                 'baseUrl'  => 'http://www.test.cn/assets',
             ],
             'db'           => [
@@ -75,21 +74,21 @@ return [
                 'routes' => [
                     [
                         'class'   => 'CFileLogRoute',
-                        'logPath' => __DIR__ . '/../log',
+                        'logPath' => COMMON_PATH . D . 'log',
                         'logFile' => 'error.log',
                         'levels'  => 'error',
                         'except'  => 'CHttpException.*',
                     ],
                     [
                         'class'   => 'CFileLogRoute',
-                        'logPath' => __DIR__ . '/../log',
+                        'logPath' => COMMON_PATH . D . 'log',
                         'logFile' => 'warning.log',
                         'levels'  => 'warning',
                         'except'  => 'CHttpException.*',
                     ],
                     [
                         'class'   => 'CFileLogRoute',
-                        'logPath' => __DIR__ . '/../log',
+                        'logPath' => COMMON_PATH . D . 'log',
                         'logFile' => 'info.log',
                         'levels'  => 'info',
                         'except'  => 'CHttpException.*',

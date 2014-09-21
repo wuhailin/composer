@@ -28,6 +28,7 @@ class IndexController extends \common\component\Controller
     public function actionIndex()
     {
         $model = new common\model\Article('search');
+        $model->unsetAttributes();
         $this->render($this->action->id, [
             'model' => $model,
         ]);

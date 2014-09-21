@@ -18,7 +18,7 @@ namespace common\component;
 class Controller extends \CController
 {
     /**
-     * @var \BSApi
+     * @var \Bootstrap
      */
     public $bootstrap;
 

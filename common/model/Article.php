@@ -1,5 +1,9 @@
 <?php
 namespace common\model;
+use common\model,
+    CActiveRecord,
+    CDbCriteria,
+    CActiveDataProvider;
 /**
  * This is the model class for table "article".
  *
@@ -63,6 +67,7 @@ class Article extends \CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'content' => [self::BELONGS_TO, 'common\model\Body', 'id']
 		);
 	}
 
@@ -89,7 +94,8 @@ class Article extends \CActiveRecord
 			'goodpost' => '顶',
 			'notpost' => '可否评论',
 			'description' => 'Desc',
-			'addTime' => 'Add Time',
+			'addTime' => '增加时间',
+            'content' => '内容'
 		);
 	}
 
@@ -129,6 +135,7 @@ class Article extends \CActiveRecord
 		$criteria->compare('notpost',$this->notpost);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('addTime',$this->addTime,true);
+
 
 		return new \CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
