@@ -1,5 +1,5 @@
 <?php
-
+namespace common\model;
 /**
  * This is the model class for table "article".
  *
@@ -21,9 +21,9 @@
  * @property integer $goodpost
  * @property integer $notpost
  * @property string $description
- * @property string $addtime
+ * @property string $addTime
  */
-class Article extends CActiveRecord
+class Article extends \CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
@@ -41,9 +41,9 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('category, click, title, color, creator, picture, addtime', 'required'),
+			array('category, click, title, color, creator, picture, addTime', 'required'),
 			array('category, type, click, creator, scores, goodpost, notpost', 'numerical', 'integerOnly'=>true),
-			array('orderNO, senddate, addtime', 'length', 'max'=>10),
+			array('orderNO, senddate, addTime', 'length', 'max'=>10),
 			array('title', 'length', 'max'=>60),
 			array('shortTitle, source, keyword', 'length', 'max'=>30),
 			array('color', 'length', 'max'=>7),
@@ -51,7 +51,7 @@ class Article extends CActiveRecord
 			array('description', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, category, type, orderNO, click, title, shortTitle, color, creator, source, picture, senddate, keyword, scores, goodpost, notpost, description, addtime', 'safe', 'on'=>'search'),
+			array('id, category, type, orderNO, click, title, shortTitle, color, creator, source, picture, senddate, keyword, scores, goodpost, notpost, description, addTime', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -89,7 +89,7 @@ class Article extends CActiveRecord
 			'goodpost' => '顶',
 			'notpost' => '可否评论',
 			'description' => 'Description',
-			'addtime' => 'Addtime',
+			'addTime' => 'Add Time',
 		);
 	}
 
@@ -109,7 +109,7 @@ class Article extends CActiveRecord
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria=new CDbCriteria;
+		$criteria=new \CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('category',$this->category);
@@ -128,9 +128,9 @@ class Article extends CActiveRecord
 		$criteria->compare('goodpost',$this->goodpost);
 		$criteria->compare('notpost',$this->notpost);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('addtime',$this->addtime,true);
+		$criteria->compare('addTime',$this->addTime,true);
 
-		return new CActiveDataProvider($this, array(
+		return new \CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}

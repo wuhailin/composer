@@ -11,3 +11,4 @@ themes/classic/views/
 /home/runtime
 /common/log
 /.idea
+/common/extension/bootstrap

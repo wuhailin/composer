@@ -15,13 +15,17 @@ return [
         //...
         'aliases'           => [
             'common'    => dirname(__DIR__),
-            'bootstrap' => dirname(dirname(__DIR__)) . '/vendor/drmabuse/yii-bootstrap-3-module',
+            //'bootstrap' => dirname(dirname(__DIR__)) . '/vendor/drmabuse/yii-bootstrap-3-module',
             'vendor'    => dirname(dirname(__DIR__)) . '/vendor',
+            'bootstrap' => dirname(__DIR__).'/extension/bootstrap',
         ],
+        'language'          => 'zh_cn',
+        'timeZone' => 'Asia/Shanghai',
         'preload'           => ['log'],
         'defaultController' => 'index',
         'import'            => [
             'common.model.*',
+            'common.libs.*',
             'common.component.*',
             'common.component.behavior.*',
             'common.component.widget.*',
@@ -31,7 +35,7 @@ return [
         ],
         'components'        => [
             'bootstrap'    => [
-                'class' => 'bootstrap.components.BsApi'
+                'class' => 'bootstrap.components.Bootstrap'
             ],
             'coreMessages' => [
                 'basePath' => __DIR__ . '/../messages',
@@ -99,10 +103,10 @@ return [
                     ],
                 ],
             ],
-            /*'cache'        => [
-                'class' => 'system.caching.CDummyCache',
-            ],*/
             'cache'        => [
+                'class' => 'system.caching.CDummyCache',
+            ],
+            'memCache'     => [
                 //...
                 'class'   => 'system.caching.CMemCache',
                 'servers' => [

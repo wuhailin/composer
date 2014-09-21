@@ -6,8 +6,14 @@
  * Time: 下午9:43
  */
 
-class IndexController extends CController
+class IndexController extends \common\component\Controller
 {
+    public function init()
+    {
+        parent::init();
+        $this->metaKeywords = $this->metaDescription = $this->app->name;
+    }
+
     public function actions()
     {
         return [
@@ -18,17 +24,13 @@ class IndexController extends CController
             ]
         ];
     }
+
     public function actionIndex()
     {
-        $startTime = microtime(true);
-        Article::model()->findAll();
-        $endTime = microtime(true);
-        echo sprintf('%.4f',$endTime - $startTime);
-        Article::model()->findAll();
-        $endTime = microtime(true);
-        echo sprintf('<br>%.4f', $endTime - $endTime);
-        Article::model()->findAll();
-        $endTime = microtime(true);
-        echo sprintf('<br>%.4f', $endTime - $endTime);
+        echo $this->app->language;
+        $model = new common\model\Article('search');
+        $this->render($this->action->id, [
+            'model' => $model,
+        ]);
     }
 } 
