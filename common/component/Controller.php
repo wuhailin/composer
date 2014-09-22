@@ -41,4 +41,29 @@ class Controller extends \CController
             ],
         ];
     }
-} 
+
+    public function filters()
+    {
+        return ['accessControl'];
+    }
+
+    public function accessRules()
+    {
+        return [
+            [
+                'allow',
+                'actions' => ['login', 'error'],//所有用户可查看
+                'users' => ['*'],
+            ],
+            [
+                'allow',
+                'actions' => ['index'],//登录用户查看
+                'users' => ['@'],
+            ],
+            [
+                'deny',
+                'users' => ['*'],
+            ]
+        ];
+    }
+}

@@ -140,6 +140,13 @@ return [
                 'security' => 'ssl',
                 'throttle' => 300
             ],
+            'session' => [
+                'class' => 'CCacheHttpSession',
+                'cacheID' => 'redis',
+            ],
+            'user' => [
+                'loginUrl' => ['index/login'],
+            ],
         ],
         'params'            => [
             'adminEmail' => 'admin@qq.com',
