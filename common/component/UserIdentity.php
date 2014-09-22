@@ -7,12 +7,14 @@
  */
 
 namespace common\component;
-use CUserIdentity;
+use CUserIdentity,
+    CActiveRecord;
 
 class UserIdentity extends CUserIdentity
 {
+    public $modelName;
     public function authenticate()
     {
-        //
+        $model = CActiveRecord::model($this->modelName);
     }
 } 

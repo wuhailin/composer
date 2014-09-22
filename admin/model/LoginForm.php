@@ -7,12 +7,14 @@
  */
 
 namespace admin\model;
-use CFormModel;
+use CFormModel,
+    common\component\UserIdentity;
 
 class LoginForm extends CFormModel
 {
     public $username;
     public $password;
+    public $modelName = 'Admin';
 
     public function rules()
     {
@@ -24,5 +26,7 @@ class LoginForm extends CFormModel
 
     public function authenticate()
     {
+        $identity = new UserIdentity($this->username, $this->password);
+        $identity->modelName = $this->modelName;
     }
 } 
