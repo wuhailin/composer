@@ -26,6 +26,7 @@ return [
             'common.model.*',
             'common.libs.*',
             'common.component.*',
+            'common.component.action.*',
             'common.component.behavior.*',
             'common.component.widget.*',
             'bootstrap.behaviors.*',
@@ -77,7 +78,6 @@ return [
                         'logPath' => COMMON_PATH . D . 'log',
                         'logFile' => 'error.log',
                         'levels'  => 'error',
-                        'except'  => 'CHttpException.*',
                     ],
                     [
                         'class'   => 'CFileLogRoute',

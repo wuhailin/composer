@@ -13,6 +13,8 @@ namespace common\component;
  * @property string $metaTitle
  * @property string $metaKeywords
  * @property string $metaDescription
+ * @property \CAction    $action
+ * @property string $id
  * @package common\component
  */
 class Controller extends \CController

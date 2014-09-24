@@ -8,6 +8,8 @@
 
 class IndexController extends \common\component\Controller
 {
+    public $model;
+
     public function init()
     {
         parent::init();
@@ -21,7 +23,7 @@ class IndexController extends \common\component\Controller
                 'class' => 'system.web.widgets.captcha.CCaptchaAction',
                 'minLength' => 4,
                 'maxLength' => 6,
-            ]
+            ],
         ];
     }
 
@@ -40,6 +42,10 @@ class IndexController extends \common\component\Controller
 
     public function actionLogin()
     {
-        //
+        $model = new \application\model\LoginForm('create');
+        $model->unsetAttributes();
+        $this->render($this->action->id, [
+            'model' => $model,
+        ]);
     }
-} 
+}

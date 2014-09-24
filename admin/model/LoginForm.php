@@ -6,7 +6,7 @@
  * Time: 下午5:37
  */
 
-namespace admin\model;
+namespace application\model;
 use CFormModel,
     common\component\UserIdentity;
 
@@ -20,7 +20,15 @@ class LoginForm extends CFormModel
     {
         return [
             ['username, password', 'required'],
-            ['password', 'auth'],
+            ['password', 'authenticate'],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'username' => '用户',
+            'password' => '密码',
         ];
     }
 
