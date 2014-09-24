@@ -8,6 +8,7 @@
  * @var string $content
  */
 $this->bootstrap->init();
+$this->app->clientScript->registerCssFile('/css/styles.css');
 ?>
 <html>
     <head>

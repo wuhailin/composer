@@ -6,22 +6,19 @@
  * Time: 下午2:52
  */
 
-namespace common\libs;
-
-
 class Dump
 {
     public function __construct()
     {
         echo '<pre>';
-        \CVarDumper::dump(func_get_args());
+        CVarDumper::dump(func_get_args());
         echo '<pre>';
     }
 
     public static function dump()
     {
         echo '<pre>';
-        \CVarDumper::dump(func_get_args());
+        CVarDumper::dump(func_get_args());
         echo '<pre>';
         exit;
     }

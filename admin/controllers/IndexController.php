@@ -42,8 +42,19 @@ class IndexController extends \common\component\Controller
 
     public function actionLogin()
     {
-        $model = new \application\model\LoginForm('create');
+        if(!$this->app->user->isGuest){
+            $this->redirect(array('index'));
+        }
+        $model = new LoginForm('create');
         $model->unsetAttributes();
+        $modelName = CHtml::modelName($model);
+        if(isset($_POST[$modelName])){
+            //$this->app->user->logout();
+            $model->setAttributes($_POST[$modelName]);
+            if($model->validate() && $model->login()){
+                $this->redirect($this->app->user->returnUrl);
+            }
+        }
         $this->render($this->action->id, [
             'model' => $model,
         ]);

@@ -18,4 +18,12 @@ class ActiveForm extends TbActiveForm
         }
         return parent::textField($model, $attribute, $htmlOptions);
     }
-} 
+
+    public function passwordField($model,$attribute,$htmlOptions=array())
+    {
+        if(!isset($htmlOptions['placeholder'])){
+            $htmlOptions['placeholder'] = $model->getAttributeLabel($attribute);
+        }
+        return parent::passwordField($model, $attribute, $htmlOptions);
+    }
+}

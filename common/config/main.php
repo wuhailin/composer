@@ -146,6 +146,7 @@ return [
             ],
             'user' => [
                 'loginUrl' => ['index/login'],
+                'allowAutoLogin' => true,
             ],
         ],
         'params'            => [
