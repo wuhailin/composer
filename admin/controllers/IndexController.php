@@ -59,4 +59,10 @@ class IndexController extends \common\component\Controller
             'model' => $model,
         ]);
     }
+
+    public function actionLogout()
+    {
+        $this->app->user->logout();
+        $this->redirect('index');
+    }
 }

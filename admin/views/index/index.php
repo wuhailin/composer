@@ -11,10 +11,10 @@ $this->widget('bootstrap.widgets.TbGridView', [
     'dataProvider' => $model->search(),
     'columns' => [
         'title',
-        [
+        /*[
             'name' => 'content',
             'type' => 'html',
             'value' => 'isset($data->content) ? $data->content->body: ""',
-        ]
+        ]*/
     ]
 ]);
