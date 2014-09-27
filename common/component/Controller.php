@@ -59,7 +59,7 @@ class Controller extends \CController
             ],
             [
                 'allow',
-                'actions' => ['index'],//登录用户查看
+                'actions' => ['index', 'logout'],//登录用户查看
                 'users' => ['@'],
             ],
             [
