@@ -11,6 +11,7 @@ return [
         'name' => 'Composer Test',
         'import' => [
             'application.model.*',
+            'application.component.*',
         ]
     ]
 ];

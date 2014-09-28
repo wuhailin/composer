@@ -24,7 +24,9 @@ $this->app->clientScript->registerCssFile('/css/styles.css');
         <tr>
             <td id="left" width="20%" valign="top" bgcolor="red">
                 <?php
-                $this->widget('Menus');
+                $this->widget('CMenu', [
+                    'items' => Menus::getMenu(),
+                ]);
                 ?>
             </td>
             <td bgcolor="gray"></td>
