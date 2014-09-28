@@ -22,8 +22,12 @@ $this->app->clientScript->registerCssFile('/css/styles.css');
     <body>
     <table style="width: 100%;height: 100%" cellpadding="0" cellspacing="0">
         <tr>
-            <td id="left" width="20%" valign="top">11</td>
-            <td></td>
+            <td id="left" width="20%" valign="top" bgcolor="red">
+                <?php
+                $this->widget('Menus');
+                ?>
+            </td>
+            <td bgcolor="gray"></td>
         </tr>
     </table>
     <?php echo $content;?>

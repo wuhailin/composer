@@ -51,7 +51,8 @@ class Controller extends \CController
 
     public function accessRules()
     {
-        return [
+        return [];
+        /*return [
             [
                 'allow',
                 'actions' => ['login', 'error'],//所有用户可查看
@@ -66,6 +67,6 @@ class Controller extends \CController
                 'deny',
                 'users' => ['*'],
             ]
-        ];
+        ];*/
     }
 }
