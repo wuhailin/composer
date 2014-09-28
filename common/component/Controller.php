@@ -55,7 +55,7 @@ class Controller extends \CController
         /*return [
             [
                 'allow',
-                'actions' => ['login', 'error'],//所有用户可查看
+                'actions' => ['login', 'error', 'captcha'],//所有用户可查看
                 'users' => ['*'],
             ],
             [
