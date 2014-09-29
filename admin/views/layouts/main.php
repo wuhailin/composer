@@ -13,25 +13,32 @@ $this->app->clientScript->registerCssFile('/css/styles.css');
 <html lang="zh-cn">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title><?php echo $this->pageTitle?></title>
         <?php
         $this->widget('common\component\widget\Seo');
         ?>
     </head>
     <body>
-    <table style="width: 100%;height: 100%" cellpadding="0" cellspacing="0">
-        <tr>
-            <td id="left" width="20%" valign="top" bgcolor="red">
-                <?php
-                $this->widget('CMenu', [
-                    'items' => Menus::getMenu(),
-                ]);
-                ?>
-            </td>
-            <td bgcolor="gray"></td>
-        </tr>
-    </table>
+    <?php
+    $this->widget('bootstrap.widgets.TbNavbar',[
+        'brand' => $this->app->name,
+        'fixed' => true,
+        'collapse'=>true,
+        'items' => [
+        ]
+    ]);
+    ?>
+    <div class="layouts" id="right">
+        11111
+    </div>
+    <div id="left" class="layouts">
+        <?php
+        $this->widget('CMenu', [
+            'items' => Menus::getMenu(),
+        ]);
+        ?>
+    </div>
     <?php echo $content;?>
     </body>
 </html>
