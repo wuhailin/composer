@@ -124,6 +124,7 @@ return [
                 'class' => 'system.caching.CRedisCache',
             ],
             'urlManager'   => [
+                'class' => 'common.component.UrlManager',
                 'showScriptName' => false,
                 'urlFormat'      => 'path',
                 'urlSuffix'      => '.html',
