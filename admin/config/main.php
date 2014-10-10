@@ -8,7 +8,7 @@
 return [
     'configWeb' => [
         'basePath' => __DIR__.'/..',
-        'name' => 'Composer Test',
+        'name' => 'Admin - Composer Test',
         'import' => [
             'application.model.*',
             'application.component.*',

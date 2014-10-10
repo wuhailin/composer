@@ -9,6 +9,7 @@
 class IndexController extends \common\component\Controller
 {
     public $model;
+    public $layout = '//layouts/backend';
 
     public function init()
     {
@@ -42,6 +43,7 @@ class IndexController extends \common\component\Controller
 
     public function actionLogin()
     {
+        $this->layout = '//layouts/main';
         if(!$this->app->user->isGuest){
             $this->redirect(array('index'));
         }

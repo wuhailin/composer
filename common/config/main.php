@@ -35,7 +35,11 @@ return [
         ],
         'components'        => [
             'bootstrap'    => [
-                'class' => 'bootstrap.components.Bootstrap'
+                'class'          => 'bootstrap.components.Bootstrap',
+                'responsiveCss'  => true,
+                //'fontAwesomeCss' => true,
+                //'enableCdn' => true,
+                //'forceCopyAssets' => true,
             ],
             'coreMessages' => [
                 'basePath' => COMMON_PATH . D . 'messages',
@@ -140,12 +144,12 @@ return [
                 'security' => 'ssl',
                 'throttle' => 300
             ],
-            'session' => [
-                'class' => 'CCacheHttpSession',
+            'session'      => [
+                'class'   => 'CCacheHttpSession',
                 'cacheID' => 'redis',
             ],
-            'user' => [
-                'loginUrl' => ['index/login'],
+            'user'         => [
+                'loginUrl'       => ['index/login'],
                 'allowAutoLogin' => true,
             ],
         ],

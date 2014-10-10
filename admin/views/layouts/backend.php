@@ -1,0 +1,86 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ゛嗨⑩啉°
+ * Date: 2014/10/4
+ * Time: 7:41
+ * @var Controller  $this
+ * @var string $content
+ */
+$this->beginContent('//layouts/main');
+Yii::app()->clientScript->registerScript('search', <<<EOD
+$('.search-button').click(function() {
+    $('.search-div').toggle();
+    var html = $(this).html();
+    $(this).html($(this).attr('data-html'));
+    $(this).attr('data-html', html);
+    return false;
+});
+$('.search-form form').submit(function() {
+    $.fn.yiiGridView.update('{$this->id}-grid', {
+        data: $(this).serialize()
+    });
+    return false;
+});
+EOD
+);
+?>
+<header class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button class="btn btn-navbar" data-target=".left-menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/" title="<?php echo CHtml::encode($this->getPageTitle())?>"><?php echo CHtml::encode($this->getPageTitle())?></a>
+        </div>
+    </div>
+</header>
+<div id="page">
+    <table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td valign="top" class="cltd left-menu">
+                <?php $this->widget('system.zii.widgets.CMenu', array(
+                    'items' => Menus::getMenu()
+                )); ?>
+            </td>
+            <td valign="top" align="center" class="cltd">
+                <div id="content">
+                    <?php if (!empty($this->breadcrumbs)): ?>
+                        <?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
+                            'links' => $this->breadcrumbs,
+                            'separator' => '/',
+                        )); ?>
+                    <?php endif ?>
+                    <?php if (!empty($this->subMenu)): ?>
+                        <?php $this->widget('bootstrap.widgets.TbMenu', array(
+                            'type' => 'tabs',
+                            'stacked' => false,
+                            'items' => $this->subMenu,
+                        )); ?>
+                    <?php endif ?>
+                    <?php echo $content; ?>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div><!-- page -->
+
+<footer class="footer">
+    <div class="container">
+        版权所有 &copy; <?php echo date('Y'); ?> by <a href="/"><?php echo Yii::app()->name?></a>，保留所有权利。
+    </div>
+</footer>
+<?php $this->endContent(); ?>
+<script>
+    $(function(){
+        $('body').on('click', 'button.btn', function(){
+            var dataTarget = $(this).attr('data-target'),
+                current = $(dataTarget);
+            if('' != dataTarget && current.length > 0){
+                current.toggle('linear');
+            }
+        });
+    });
+</script>

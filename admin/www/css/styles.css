@@ -1,19 +1,348 @@
-.layouts{
+body {
+	padding: 0;
+	/*background-color: #C7EDCC;*/
+}
+
+label, input, button, select, textarea, .btn, input[type="text"], input[type="password"], .ui-autocomplete-input, textarea, .uneditable-input {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+input[type="text"], input[type="password"], .ui-autocomplete-input, textarea, .uneditable-input {
+    padding: 2px;
+}
+
+.form-horizontal .control-group {
+    margin-bottom: 10px;
+}
+
+select, input[type="file"] {
+    height: 26px;
+    line-height: 26px;
+}
+
+.table th, .table td {
+    line-height: 16px;
+    padding: 6px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 0;
+}
+
+.nav-tabs > li > a {
+    line-height: 16px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+.input-append .add-on, .input-prepend .add-on {
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+}
+
+.pagination ul > li > a, .pagination ul > li > span {
+    line-height: 16px;
+}
+
+.pagination ul > li:last-child > a, .pagination ul > li:last-child > span {
+    border-radius: 0;
+}
+
+.pagination .input-prepend.input-append .add-on:first-child {
+    border-radius: 0;
+}
+
+footer .powered {
+    color: #888888;
+    margin-bottom: 20px;
+}
+
+footer .copy {
+    color: #666666;
+    text-align: right;
+}
+
+.nav-header {
+    font-size: 12px;
+}
+
+.login-form {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.login-div {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.login-footer-button {
+    text-align: center;
+    margin-left: 150px;
+    margin-top: 30px;
+    margin-bottom: 140px;
+}
+
+.grid-view .summary {
+    text-align: left;
+    margin-top: 12px;
+}
+
+.grid-view .pagination {
+    text-align: right;
+    margin: 0;
+}
+
+.search-form {
+    color: #555555;
+    cursor: default;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    border-radius: 0 0 4px 4px;
+    margin-top: -20px;
+    padding-top: 20px;
+}
+
+.search-form .btn, .form-actions .btn, .grid-view tfoot .btn {
+    margin-right: 8px;
+}
+
+.grid-view td.op-column {
+    width: 1px;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.navbar-fixed-top{
+	margin: 0;
+}
+
+.grid-view td.op-column a {
+    margin-right: 3px;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #e5e5e5;
+    background-color: #f5f5f5;
+}
+
+.footer p {
+    margin-bottom: 0;
+    color: #777;
+}
+
+.footer-links {
+    margin: 10px 0;
+}
+
+.footer-links li {
+    display: inline;
+    padding: 0 2px;
+}
+
+.footer-links li:first-child {
+    padding-left: 0;
+}
+
+.controls .role-checkbox-group:first-child {
+    border-top: 0;
+}
+
+.role-checkbox-group {
+    border-top: #ddd 1px dashed;
+}
+
+.role-checkbox-group .role-checkbox-label {
+    float: left;
+    width: 160px;
+}
+
+.role-checkbox-group .role-checkbox-label label {
+    font-weight: bold;
+}
+
+.role-checkbox-group .role-checkbox {
+    margin-left: 170px;
+}
+
+.nav-list a > i {
+    width: 16px;
+}
+
+select.linkage {
+    margin: 0 8px 2px 0;
+}
+
+ul.clm {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+}
+
+ul.clm a.accordion-toggle {
+    border-bottom: 1px solid #264863;
+}
+
+ul.clm.in {
+    border-bottom: 1px solid #264863;
+}
+
+ul.clm a.accordion-toggle > span > i.icon-clm {
+    margin-top: 4px;
+    background-position: -313px -119px;
+    opacity: 0.25;
+}
+
+ul.clm a.accordion-toggle > span > i.icon-clm:before {
+    content: "\f078";
+}
+
+ul.clm a.accordion-toggle.collapsed > span > i.icon-clm {
+    background-position: -456px -72px;
+}
+
+ul.clm a.accordion-toggle.collapsed > span > i.icon-clm:before {
+    content: "\f054";
+}
+
+ul.clm a > span {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    display: block;
+}
+
+ul.clm a > span {
+    padding-left: 3.0em;
+    padding-right: 0.5em;
+}
+
+ul.clm ul.clm a > span {
+    padding-left: 3em;
+}
+
+ul.clm ul.clm ul.clm a > span {
+    padding-left: 4em;
+}
+
+ul.clm ul.clm ul.clm ul.clm a > span {
+    padding-left: 5em;
+}
+
+ul.clm > li > a {
+    padding: 0;
+}
+
+ul.clm > li > a {
+    margin: 0;
+}
+
+ul.clm.in, ul.clm > li.active > a, ul.clm > li > a:hover, ul.clm > li > a:focus {
+    background-color: #549bca;
+    color: #333;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+ul.clm li a.accordion-toggle {
+    background-color: #5589b0;
+}
+
+.detail-view td > img {
+    max-width: 720px;
+}
+
+.navbar ul.nav {
+    margin-top: 20px;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {
+    background-color: transparent;
+    color: #575656;
+}
+
+ul.clm a {
+    color: #F4F9FC;
+}
+
+td.cltd {
     height:100%;
-    float:left;
 }
-#left{
-    width:20%;
+
+#content {
+	min-height: 400px;
+	background-color: #FFFFFF;
+	padding: 2px;
 }
-#right{
-    width: 80%;
-    float: right;
+
+#content .breadcrumbs {
+    background: url("../images/rightMainInforTitle_bg.jpg") repeat-x scroll 0 0 transparent;
 }
-@media (max-width: 321px) {
-    #left{
-        display: none;
+
+.form-actions {
+    background: transparent;
+}
+
+.eajax-uploader {
+    display: inline-block;
+    margin-right: 8em;
+}
+
+.select2-container-multi .select2-choices {
+    min-height: 26px;
+}
+
+.select2-container-multi .select2-choices {
+    background-color: #FFFFFF;
+    background-image: -moz-linear-gradient(center top, #EEEEEE 1%, #FFFFFF 15%);
+    border: 1px solid #AAAAAA;
+    cursor: text;
+    height: auto !important;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+.select2-container-multi .select2-choices {
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+}
+
+.select2-container-multi .select2-choices .select2-search-field input {
+    padding: 2px 5px;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    margin: 0 80px;
+    max-height: 480px;
+}
+
+.left-menu{
+	background: #5589B0;
+	width: 250px;
+	height: 100%;
+	display: table-cell;
+}
+
+@media (max-width: 975px) {
+	.left-menu{
+		display: none;
+	}
+    #page{
+        margin:0;
     }
-    #right{
-        width: 100%;
+}
+
+@media (min-width: 975px) {
+	.left-menu{
+		display: table-cell;
+	}
+    #page{
+        margin: 40px 0 0 0;
     }
 }

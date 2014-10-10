@@ -5,7 +5,6 @@
  * Date: 2014/9/28
  * Time: 12:46
  */
-Yii::import('system.zii.widgets.CMenu');
 class Menus
 {
     private static $menus;
