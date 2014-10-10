@@ -35,7 +35,9 @@ return [
         ],
         'components'        => [
             'bootstrap'    => [
-                'class' => 'bootstrap.components.Bootstrap'
+                'class'          => 'bootstrap.components.Bootstrap',
+                'responsiveCss'  => true,
+                'fontAwesomeCss' => true,
             ],
             'coreMessages' => [
                 'basePath' => COMMON_PATH . D . 'messages',
@@ -120,6 +122,7 @@ return [
                 'class' => 'system.caching.CRedisCache',
             ],
             'urlManager'   => [
+                'class' => 'common.component.UrlManager',
                 'showScriptName' => false,
                 'urlFormat'      => 'path',
                 'urlSuffix'      => '.html',
@@ -140,12 +143,12 @@ return [
                 'security' => 'ssl',
                 'throttle' => 300
             ],
-            'session' => [
-                'class' => 'CCacheHttpSession',
+            'session'      => [
+                'class'   => 'CCacheHttpSession',
                 'cacheID' => 'redis',
             ],
-            'user' => [
-                'loginUrl' => ['index/login'],
+            'user'         => [
+                'loginUrl'       => ['index/login'],
                 'allowAutoLogin' => true,
             ],
         ],
