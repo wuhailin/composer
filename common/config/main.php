@@ -155,6 +155,7 @@ return [
                 'loginUrl'       => ['index/login'],
                 'allowAutoLogin' => true,
             ],
+            //'clientScript' => [],
         ],
         'params'            => [
             'adminEmail' => 'admin@qq.com',
