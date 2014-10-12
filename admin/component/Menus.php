@@ -25,6 +25,7 @@ class Menus
                 'items' => [
                     [
                         'label' => '全局配置',
+                        'url' => $yii->createUrl('config'),
                     ]
                 ]
             ],
@@ -42,4 +43,4 @@ class Menus
         ];
         return self::getMenu();
     }
-} 
+}

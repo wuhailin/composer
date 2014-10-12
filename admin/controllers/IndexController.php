@@ -6,10 +6,9 @@
  * Time: 下午9:43
  */
 
-class IndexController extends \common\component\Controller
+class IndexController extends Controller
 {
     public $model;
-    public $layout = '//layouts/backend';
 
     public function init()
     {
@@ -30,17 +29,24 @@ class IndexController extends \common\component\Controller
 
     public function actionIndex()
     {
-        $model = new common\model\Article('search');
-        $model->unsetAttributes();
         $this->render($this->action->id, [
-            'model' => $model,
         ]);
     }
 
+    /**
+     * 错误信息页面
+     */
     public function actionError()
     {
+        $error = $this->app->errorHandler->error;
+        $this->render($this->action->id, [
+            'error' => $error,
+        ]);
     }
 
+    /**
+     * 用户登录
+     */
     public function actionLogin()
     {
         $this->layout = '//layouts/main';
@@ -51,7 +57,6 @@ class IndexController extends \common\component\Controller
         $model->unsetAttributes();
         $modelName = CHtml::modelName($model);
         if(isset($_POST[$modelName])){
-            //$this->app->user->logout();
             $model->setAttributes($_POST[$modelName]);
             if($model->validate() && $model->login()){
                 $this->redirect($this->app->user->returnUrl);
@@ -62,9 +67,12 @@ class IndexController extends \common\component\Controller
         ]);
     }
 
+    /**
+     * 用户退出操作
+     */
     public function actionLogout()
     {
         $this->app->user->logout();
-        $this->redirect('index');
+        $this->redirect($this->createAbsoluteUrl('index/login'));
     }
 }

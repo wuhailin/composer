@@ -14,7 +14,6 @@ $this->app->clientScript->registerCssFile('/css/styles.css');
 <html lang="zh-cn">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
         <title><?php echo $this->getPageTitle()?></title>
         <?php
         $this->widget('common\component\widget\Seo');

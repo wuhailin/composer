@@ -35,8 +35,8 @@ return [
         ],
         'components'        => [
             'bootstrap'    => [
-                'class'          => 'bootstrap.components.Bootstrap',
-                'responsiveCss'  => true,
+                'class'         => 'bootstrap.components.Bootstrap',
+                'responsiveCss' => true,
                 //'fontAwesomeCss' => true,
                 //'enableCdn' => true,
                 //'forceCopyAssets' => true,
@@ -71,7 +71,7 @@ return [
                     ],
                 ]
             ],
-            'errorHandle'  => [
+            'errorHandler'  => [
                 'errorAction' => 'index/error',
             ],
             'log'          => [
@@ -124,7 +124,7 @@ return [
                 'class' => 'system.caching.CRedisCache',
             ],
             'urlManager'   => [
-                'class' => 'common.component.UrlManager',
+                'class'          => 'common.component.UrlManager',
                 'showScriptName' => false,
                 'urlFormat'      => 'path',
                 'urlSuffix'      => '.html',
@@ -146,8 +146,10 @@ return [
                 'throttle' => 300
             ],
             'session'      => [
-                'class'   => 'CCacheHttpSession',
-                'cacheID' => 'redis',
+                'class'      => 'CCacheHttpSession',
+                'cacheID'    => 'redis',
+                'timeout'    => 3600,
+                'cookieMode' => 'only',
             ],
             'user'         => [
                 'loginUrl'       => ['index/login'],

@@ -255,10 +255,6 @@ ul.clm li a.accordion-toggle {
     max-width: 720px;
 }
 
-.navbar ul.nav {
-    margin-top: 20px;
-}
-
 .navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {
     background-color: transparent;
     color: #575656;
@@ -274,7 +270,7 @@ td.cltd {
 
 #content {
 	min-height: 400px;
-	background-color: #FFFFFF;
+	/*background-color: #FFFFFF;*/
 	padding: 2px;
 }
 
@@ -323,10 +319,11 @@ td.cltd {
 }
 
 .left-menu{
-	background: #5589B0;
+    background: rgba(0,0,0,0);
 	width: 250px;
 	height: 100%;
 	display: table-cell;
+    border-right: 1px dotted #000;
 }
 
 @media (max-width: 975px) {

@@ -52,21 +52,5 @@ class Controller extends \CController
     public function accessRules()
     {
         return [];
-        /*return [
-            [
-                'allow',
-                'actions' => ['login', 'error', 'captcha'],//所有用户可查看
-                'users' => ['*'],
-            ],
-            [
-                'allow',
-                'actions' => ['index', 'logout'],//登录用户查看
-                'users' => ['@'],
-            ],
-            [
-                'deny',
-                'users' => ['*'],
-            ]
-        ];*/
     }
 }
