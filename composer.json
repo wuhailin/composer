@@ -10,6 +10,7 @@
         "janisto/yii-mailer": "dev-master",
         "nineinchnick/yii-exporter": "dev-master",
         "crisu83/yii-imagemanager": "dev-master",
-        "metalguardian/yii-date-time-picker": "dev-master"
+        "metalguardian/yii-date-time-picker": "dev-master",
+        "giovdk21/yii-angularjs-helper": "dev-master"
     }
 }
