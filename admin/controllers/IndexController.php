@@ -38,10 +38,7 @@ class IndexController extends Controller
      */
     public function actionError()
     {
-        $error = $this->app->errorHandler->error;
-        $this->render($this->action->id, [
-            'error' => $error,
-        ]);
+        $this->render($this->action->id);
     }
 
     /**
