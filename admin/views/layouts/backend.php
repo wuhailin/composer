@@ -89,8 +89,8 @@ $this->widget('NavBar', [
         <table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
             <tr>
                 <td valign="top" class="cltd left-menu">
-                    <?php $this->widget('system.zii.widgets.CMenu', array(
-                        'items' => Menus::getMenu()
+                    <?php $this->widget('common.component.widget.Menu', array(
+                        'items' => Menus::getMenu(),
                     )); ?>
                 </td>
                 <td valign="top" align="center" class="cltd">

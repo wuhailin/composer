@@ -18,29 +18,28 @@ class Menus
          * @var CWebApplication $yii
          */
         $yii = Yii::app();
-        self::$menus = [
-            [
+        self::$menus = array(
+            array(
                 'label' => '系统设置',
-                //'visible' => !$yii->user->isGuest,
-                'items' => [
-                    [
-                        'label' => '全局配置',
-                        'url' => $yii->createUrl('config'),
-                    ]
-                ]
-            ],
-            [
-                'label' => '日志信息',
-                'items' => [
-                    [
-                        'label' => '系统日志'
-                    ],
-                    [
-                        'label' => '操作日志',
-                    ]
-                ]
-            ]
-        ];
+            ),
+            'config' => array(
+                'label' => '基本配置',
+                'url' => $yii->createUrl('config'),
+            ),
+            array(
+                'label' => '测试',
+            ),
+            'profile' => array(
+                'label' => '测试1',
+                'url' => '#'
+            ),
+            array(
+                'end' => true,
+            ),
+            array(
+                'end' => true,
+            ),
+        );
         return self::getMenu();
     }
 }
