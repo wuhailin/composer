@@ -7,7 +7,6 @@
  */
 
 namespace common\component;
-
 /**
  * Class Controller
  * @property string $metaTitle
@@ -28,6 +27,16 @@ class Controller extends \CController
      * @var \CWebApplication
      */
     public $app;
+
+    /**
+     * @var ActiveRecord
+     */
+    public $model;
+
+    /**
+     * @var string
+     */
+    public $modelName;
 
     public function init()
     {

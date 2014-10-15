@@ -33,4 +33,9 @@ class Controller extends \common\component\Controller
             ]
         ]);
     }
+
+    public function behaviors()
+    {
+        return [];
+    }
 } 

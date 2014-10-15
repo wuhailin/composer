@@ -13,7 +13,6 @@ class IndexController extends Controller
     public function init()
     {
         parent::init();
-        $this->metaKeywords = $this->metaDescription = $this->app->name;
     }
 
     public function actions()
