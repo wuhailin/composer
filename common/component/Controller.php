@@ -38,6 +38,9 @@ class Controller extends \CController
      */
     public $modelName;
 
+    protected $breadcrumbs;
+    public $menu;
+
     public function init()
     {
         $this->bootstrap = \Yii::app()->bootstrap;
@@ -61,5 +64,24 @@ class Controller extends \CController
     public function accessRules()
     {
         return [];
+    }
+
+    /**
+     * @param int|string     $id
+     * @param bool $throw
+     * @return ActiveRecord
+     * @throws \CHttpException
+     */
+    final public function loadModel($id, $throw = true)
+    {
+        /**
+         * @var ActiveRecord $model
+         */
+        $model = ActiveRecord::model($this->modelName);
+        $model = $model->findByPk($id);
+        if($throw && null === $model){
+            throw new \CHttpException(404,'The requested page does not exist.');
+        }
+        return $model;
     }
 }

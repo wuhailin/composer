@@ -12,6 +12,7 @@ class Controller extends \common\component\Controller
     {
         parent::init();
         $this->layout = $this->app->user->isGuest ? '//layouts/main' : '//layouts/backend';
+        $this->modelName = ucfirst($this->id);
     }
 
     public function accessRules()
@@ -37,5 +38,18 @@ class Controller extends \common\component\Controller
     public function behaviors()
     {
         return [];
+    }
+
+    public function getBreadcrumbs()
+    {
+        if(isset($this->breadcrumbs)){
+            return $this->breadcrumbs;
+        }
+        $action = $this->action->id;
+        $model = $this->model;
+        $breadcrumbs = [
+            $model->modelName = ['index'],
+        ];
+        return $this->breadcrumbs = $breadcrumbs;
     }
 } 

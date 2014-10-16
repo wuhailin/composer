@@ -6,4 +6,4 @@
  * Time: 15:05
  */
 $error = Yii::app()->errorHandler->error;
-echo '<span>404</span>';
+new Dump($this->app->errorHandler->error);
