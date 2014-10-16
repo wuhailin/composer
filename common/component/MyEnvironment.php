@@ -8,7 +8,9 @@
 namespace common\component;
 
 use marcovtwout\YiiEnvironment\Environment;
-require_once __DIR__.'/../../vendor/marcovtwout/yii-environment/Environment.php';
+
+require_once __DIR__ . '/../../vendor/marcovtwout/yii-environment/Environment.php';
+
 class MyEnvironment extends Environment
 {
     protected $sitePath = null;
@@ -16,21 +18,20 @@ class MyEnvironment extends Environment
 
     /**
      * @param null|string $sitePath
-     * @param null  $mode
+     * @param null        $mode
      */
-    public function __construct($sitePath, $mode = null)
-    {
+    public function __construct($sitePath, $mode = null) {
         self::$instance = $this;
         $this->sitePath = $sitePath;
-        if(null === $mode){
-            $mode = require __DIR__.'/../config/mode.php';
+        if (null === $mode)
+        {
+            $mode = require __DIR__ . '/../config/mode.php';
         }
-        $this->configDir = __DIR__.'/../config';
+        $this->configDir = __DIR__ . '/../config';
         parent::__construct($mode, $this->configDir);
     }
 
-    public function getValidModes()
-    {
+    public function getValidModes() {
         return [
             100 => 'DEVELOPMENT',
             101 => 'STABLE',
@@ -40,67 +41,95 @@ class MyEnvironment extends Environment
         ];
     }
 
-    public static function getInstance()
-    {
+    public static function getInstance() {
         return self::$instance;
     }
 
-    protected function getDefine()
-    {
-        $dir = $this->configDir;
-        $fileLocalDefine = $dir.'/define_local.php';
+    protected function getDefine() {
+        $dir             = $this->configDir;
+        $fileLocalDefine = $dir . '/define_local.php';
         //存在本地常量定义文件则引入本地常量文件
-        if(file_exists($fileLocalDefine)){
+        if (file_exists($fileLocalDefine))
+        {
             require_once $fileLocalDefine;
-        }
-        else{
+        } else
+        {
             //引入模型配置文件
-            $fileSpecificDefine = $dir.'/define_'.strtolower($this->mode).'.php';
-            if(!file_exists($fileSpecificDefine)){
-                throw new \Exception('模式常量文件"'.$fileSpecificDefine.'"不存在.');
+            $fileSpecificDefine = $dir . '/define_' . strtolower($this->mode) . '.php';
+            if (!file_exists($fileSpecificDefine))
+            {
+                throw new \Exception('模式常量文件"' . $fileSpecificDefine . '"不存在.');
             }
             require_once $fileSpecificDefine;
         }
-        $fileMainDefine = $dir.'define.php';
-        if(!file_exists($fileMainDefine)){
-            throw new \Exception('主常量文件"'.$fileMainDefine.'"不存在.');
+        $fileMainDefine = $dir . 'define.php';
+        if (!file_exists($fileMainDefine))
+        {
+            throw new \Exception('主常量文件"' . $fileMainDefine . '"不存在.');
         }
         require_once $fileMainDefine;
     }
 
-    protected function getConfig()
-    {
-        $config = parent::getConfig();
-        $dir = $this->sitePath;
-        $fileMainConfig = $dir.'/config/main.php';
-        if(!file_exists($fileMainConfig)){
-            throw new \Exception('主配置文件"'.$fileMainConfig.'"找不到.');
+    protected function getConfig() {
+        /*$config = parent::getConfig();*/
+
+        $fileMainConfig = $this->configDir . 'main.php';
+        if (!file_exists($fileMainConfig))
+        {
+            throw new \Exception('Cannot find main config file "' . $fileMainConfig . '".');
         }
-        $configMain = require $fileMainConfig;
-        $config = self::mergeArray($config, $configMain);
-        $fileSpecficFile = $dir.'/config/mode_'.strtolower($this->mode).'.php';
-        if(file_exists($fileSpecficFile)){
-            $fileSpecficConfig = require $fileSpecficFile;
-            $config = self::mergeArray($fileSpecficConfig, $config);
+        $configMain = require($fileMainConfig);
+
+        // Load specific config
+        $fileSpecificConfig = $this->configDir . 'mode_' . strtolower($this->mode) . '.php';
+        if (!file_exists($fileSpecificConfig))
+        {
+            throw new \Exception('Cannot find mode specific config file "' . $fileSpecificConfig . '".');
+        }
+        $configSpecific = require($fileSpecificConfig);
+
+        // Merge specific config into main config
+        $config = self::mergeArray($configSpecific, $configMain);
+
+        // If one exists, load and merge local config
+        $fileLocalConfig = $this->configDir . 'local.php';
+        if (file_exists($fileLocalConfig))
+        {
+            $configLocal = require($fileLocalConfig);
+            $config      = self::mergeArray($configLocal, $config);
         }
 
-        $fileLocalFile = $dir.'/config/mode_local.php';
-        if(file_exists($fileLocalFile)){
+        $dir            = $this->sitePath;
+        $fileMainConfig = $dir . '/config/main.php';
+        if (!file_exists($fileMainConfig))
+        {
+            throw new \Exception('主配置文件"' . $fileMainConfig . '"找不到.');
+        }
+        $configMain      = require $fileMainConfig;
+        $config          = self::mergeArray($config, $configMain);
+        $fileSpecficFile = $dir . '/config/mode_' . strtolower($this->mode) . '.php';
+        if (file_exists($fileSpecficFile))
+        {
+            $fileSpecficConfig = require $fileSpecficFile;
+            $config            = self::mergeArray($fileSpecficConfig, $config);
+        }
+
+        $fileLocalFile = $dir . '/config/mode_local.php';
+        if (file_exists($fileLocalFile))
+        {
             $fileLocalConfig = require $fileLocalFile;
-            $config = self::mergeArray($config, $fileLocalConfig);
+            $config          = self::mergeArray($config, $fileLocalConfig);
         }
 
         return $config;
     }
 
-    protected function setEnvironment()
-    {
+    protected function setEnvironment() {
         $this->getDefine();
         parent::setEnvironment();
     }
 
-    public function getMode()
-    {
+    public function getMode() {
         return $this->mode;
     }
 } 

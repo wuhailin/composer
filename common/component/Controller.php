@@ -38,6 +38,8 @@ class Controller extends \CController
      */
     public $modelName;
 
+    public $angularName = '';
+
     protected $breadcrumbs;
     public $menu;
 

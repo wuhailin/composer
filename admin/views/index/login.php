@@ -8,7 +8,12 @@
  * @var TbActiveForm  $form
  * @var LoginForm $model
  */
-$form = $this->beginWidget('common\component\widget\ActiveForm');
+$form = $this->beginWidget('common\component\widget\ActiveForm', [
+    'htmlOptions' => [
+        'novalidate' => true,
+        'name' => 'LoginForm',
+    ],
+]);
 
 echo $form->errorSummary($model);
 echo $form->textFieldRow($model, 'username');

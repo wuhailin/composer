@@ -40,7 +40,6 @@ return [
                 'fontAwesomeCss'  => true, //是否使用FontAwesome的图标
                 //'enableCdn' => true,
                 //'forceCopyAssets' => true,
-                'minify'          => true,   //是否使用压缩的css跟js文件
                 'popoverSelector' => "[data-toggle=popover]",    //描述这些元件的数据标题，数据内容，数据的位置
                 'tooltipSelector' => "[data-toggle=tooltip]", //描述元素的提示
             ],
@@ -132,7 +131,6 @@ return [
                 'urlFormat'      => 'path',
                 'urlSuffix'      => '.html',
                 'rules'          => [
-                    '<_m:(gii)>'           => '<_m>/default/index',
                     '<_m:\w+>'             => '<_m>/index/index',
                     '<_c:\w+>/<id:\d+>'    => '<_c>/view',
                     '<_c:\w+>/<_a:\w+\d*>' => '<_c>/<_a>',
