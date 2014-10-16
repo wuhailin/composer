@@ -11,8 +11,8 @@
 $form = $this->beginWidget('common\component\widget\ActiveForm');
 
 echo $form->errorSummary($model);
-echo $form->textFieldRow($model, 'username', ['class' => 'span2']);
-echo $form->passwordFieldRow($model, 'password', ['class' => 'span2']);
+echo $form->textFieldRow($model, 'username');
+echo $form->passwordFieldRow($model, 'password');
 
 echo CHtml::openTag('div', ['class' => 'actions']);
 $this->widget('bootstrap.widgets.TbButton', [

@@ -35,11 +35,14 @@ return [
         ],
         'components'        => [
             'bootstrap'    => [
-                'class'         => 'bootstrap.components.Bootstrap',
-                'responsiveCss' => true,
-                //'fontAwesomeCss' => true,
+                'class'           => 'bootstrap.components.Bootstrap',
+                'responsiveCss'   => true,
+                'fontAwesomeCss'  => true, //是否使用FontAwesome的图标
                 //'enableCdn' => true,
                 //'forceCopyAssets' => true,
+                'minify'          => true,   //是否使用压缩的css跟js文件
+                'popoverSelector' => "[data-toggle=popover]",    //描述这些元件的数据标题，数据内容，数据的位置
+                'tooltipSelector' => "[data-toggle=tooltip]", //描述元素的提示
             ],
             'coreMessages' => [
                 'basePath' => COMMON_PATH . D . 'messages',
@@ -71,7 +74,7 @@ return [
                     ],
                 ]
             ],
-            'errorHandler'  => [
+            'errorHandler' => [
                 'errorAction' => 'index/error',
             ],
             'log'          => [
