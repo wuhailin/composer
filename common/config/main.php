@@ -9,7 +9,7 @@ return [
     'yiiPath'       => ROOT_PATH . '/vendor/yiisoft/yii/framework/yii.php',
     'yiicPath'      => ROOT_PATH . '/vendor/yiisoft/yii/framework/yiic.php',
     'yiitPath'      => ROOT_PATH . '/vendor/yiisoft/yii/framework/yiit.php',
-    'yiiDebug'      => true,
+    'yiiDebug'      => false,
     'yiiTraceLevel' => 0,
     'configWeb'     => [
         //...
@@ -32,12 +32,14 @@ return [
             'bootstrap.behaviors.*',
             'bootstrap.helper.*',
             'bootstrap.widgets.*',
+            'application.component.*',
+            'application.model.*',
         ],
         'components'        => [
             'bootstrap'    => [
-                'class'           => 'bootstrap.components.Bootstrap',
-                'responsiveCss'   => true,
-                'fontAwesomeCss'  => true, //是否使用FontAwesome的图标
+                'class'          => 'bootstrap.components.Bootstrap',
+                'responsiveCss'  => true,
+                'fontAwesomeCss' => true, //是否使用FontAwesome的图标
                 //'enableCdn' => true,
                 //'forceCopyAssets' => true,
                 //'popoverSelector' => "[data-toggle=popover]",    //描述这些元件的数据标题，数据内容，数据的位置
@@ -164,12 +166,51 @@ return [
     ],
     'configConsole' => [
         //...
-        'aliases'    => 'inherit',
+        //'aliases'    => 'inherit',
         'preload'    => ['log'],
         'import'     => 'inherit',
         'components' => [
             'db'  => 'inherit',
-            'log' => 'inherit',
+            'log' => [
+                'class'  => 'CLogRouter',
+                'routes' => [
+                    [
+                        'class'   => 'CFileLogRoute',
+                        'logPath' => COMMON_PATH . D . 'log',
+                        'logFile' => 'error.log',
+                        'levels'  => 'error',
+                    ],
+                    [
+                        'class'   => 'CFileLogRoute',
+                        'logPath' => COMMON_PATH . D . 'log',
+                        'logFile' => 'warning.log',
+                        'levels'  => 'warning',
+                        'except'  => 'CHttpException.*',
+                    ],
+                    [
+                        'class'   => 'CFileLogRoute',
+                        'logPath' => COMMON_PATH . D . 'log',
+                        'logFile' => 'info.log',
+                        'levels'  => 'info',
+                        'except'  => 'CHttpException.*',
+                    ],
+                    [
+                        'class'              => 'CDbLogRoute',
+                        'connectionID'       => 'db',
+                        'autoCreateLogTable' => true,
+                        'logTableName'       => 'log',
+                        'levels'             => 'warning, error, info'
+                    ],
+                ],
+            ],
+        ],
+        'commandMap' => [
+            'migrate' => [
+                'class'        => 'system.cli.commands.MigrateCommand',
+                'migratePath'  => 'application.migrates',
+                'migrateTable' => 'migrate',
+                'connectionID' => 'db',
+            ],
         ],
     ]
 ];
