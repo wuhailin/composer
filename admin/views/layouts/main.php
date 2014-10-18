@@ -22,8 +22,5 @@ $this->app->clientScript->registerCssFile('/css/styles.css');
     </head>
     <body>
     <?php echo $content;?>
-    <input type="text" data-ng-model="test" data-ng-disabled="test.length < 10"/>
-    <span>{{test|lowercase}}</span>
-    <span>{{test.length < 10}}</span>
     </body>
 </html>
