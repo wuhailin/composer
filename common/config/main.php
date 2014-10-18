@@ -207,8 +207,8 @@ return [
         'commandMap' => [
             'migrate' => [
                 'class'        => 'system.cli.commands.MigrateCommand',
-                'migratePath'  => 'application.migrates',
-                'migrateTable' => 'migrate',
+                'migrationPath'  => 'application.migrates',
+                'migrationTable' => 'migrate',
                 'connectionID' => 'db',
             ],
         ],
