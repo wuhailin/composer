@@ -30,10 +30,8 @@ return [
             'common.component.behavior.*',
             'common.component.widget.*',
             'bootstrap.behaviors.*',
-            'bootstrap.helper.*',
-            'bootstrap.widgets.*',
             'application.component.*',
-            'application.model.*',
+            'application.model.*'
         ],
         'components'        => [
             'bootstrap'    => [

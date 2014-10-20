@@ -1,6 +1,7 @@
 <?php
 return [
-    'configWeh'     => [],
+    'configWeh'     => [
+    ],
     'configConsole' => [
         'basePath' => dirname(__DIR__),
         'name'     => 'My Console Application',
