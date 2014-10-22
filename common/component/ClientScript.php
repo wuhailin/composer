@@ -6,6 +6,11 @@ class ClientScript extends CClientScript
     protected $dependencies = array();
     protected $priority = array();
 
+    /**
+     * 把CSS排序加入进去渲染
+     *
+     * @param string $output
+     */
     public function renderHead(&$output)
     {
         $cssFilesOrdered = array();
