@@ -5,7 +5,7 @@
  * Date: 2014/10/12
  * Time: 13:41
  */
-
+Yii::import('bootstrap.widgets.TbNavbar');
 class NavBar extends TbNavbar
 {
     /**

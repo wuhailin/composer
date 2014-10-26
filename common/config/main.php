@@ -64,18 +64,33 @@ return [
                 'tablePrefix'        => '',
                 'enableProfiling'    => true,
                 'enableParamLogging' => true,
+                'emulatePrepare' => true,
                 'timeout'            => 3, // 增加数据库连接超时时间，默认3s
                 'slaves'             => [
                     [
                         'connectionString' => 'mysql:host=localhost;dbname=test;',
                         'username'         => 'root',
                         'password'         => '123456',
+                        'enableProfiling'    => true,
+                        'enableParamLogging' => true,
+                        'emulatePrepare' => true,
                     ],
-                ]
+                ],
             ],
             'errorHandler' => [
                 'errorAction' => 'index/error',
             ],
+            /**
+             * system.base.CModule	系统模块
+             * system.caching.CDbCache	缓存
+             * system.CModule	模块
+             * system.db.ar.CActiveRecord	AR操作
+             * system.db.CDbCommand	数据库执行
+             * system.db.CDbConnection	数据库连接
+             * system.db.CDbTransaction	数据库存储
+             * system.web.auth.CDbAuthManager	权限
+             * system.web.filters.CFilterChain	过滤器
+             */
             'log'          => [
                 'class'  => 'CLogRouter',
                 'routes' => [
@@ -169,38 +184,7 @@ return [
         'import'     => 'inherit',
         'components' => [
             'db'  => 'inherit',
-            'log' => [
-                'class'  => 'CLogRouter',
-                'routes' => [
-                    [
-                        'class'   => 'CFileLogRoute',
-                        'logPath' => COMMON_PATH . D . 'log',
-                        'logFile' => 'error.log',
-                        'levels'  => 'error',
-                    ],
-                    [
-                        'class'   => 'CFileLogRoute',
-                        'logPath' => COMMON_PATH . D . 'log',
-                        'logFile' => 'warning.log',
-                        'levels'  => 'warning',
-                        'except'  => 'CHttpException.*',
-                    ],
-                    [
-                        'class'   => 'CFileLogRoute',
-                        'logPath' => COMMON_PATH . D . 'log',
-                        'logFile' => 'info.log',
-                        'levels'  => 'info',
-                        'except'  => 'CHttpException.*',
-                    ],
-                    [
-                        'class'              => 'CDbLogRoute',
-                        'connectionID'       => 'db',
-                        'autoCreateLogTable' => true,
-                        'logTableName'       => 'log',
-                        'levels'             => 'warning, error, info'
-                    ],
-                ],
-            ],
+            'log' => 'inherit',
         ],
         'commandMap' => [
             'migrate' => [

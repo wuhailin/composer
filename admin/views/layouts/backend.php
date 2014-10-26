@@ -37,7 +37,7 @@ jQuery(function () {
 });
 EOD
 );
-$this->widget('NavBar', [
+$this->widget('common.component.NavBar', [
     //'type' => TbNavbar::TYPE_INVERSE,
     'brand'        => Yii::app()->name,
     'brandUrl'     => '/',
