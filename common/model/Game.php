@@ -55,6 +55,8 @@ class Game extends \CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'type' => [static::HAS_ONE, 'common\model\GameType', 'type'],
+            'server' => [static::HAS_MANY, 'common\model\Server', 'gameID'],
 		);
 	}
 
