@@ -6,8 +6,9 @@
  * Time: 16:11
  * @property CActiveRecord  $owner
  */
+namespace common\component\behavior;
 
-class UserBehavior extends CActiveRecordBehavior
+class UserBehavior extends \CActiveRecordBehavior
 {
     public $usernameField = 'username';
     public $passwordField = 'password';

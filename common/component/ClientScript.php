@@ -1,4 +1,8 @@
 <?php
+namespace common\component;
+
+use Yii,
+    CClientScript;
 
 class ClientScript extends CClientScript
 {
@@ -112,9 +116,10 @@ class ClientScript extends CClientScript
      *
      * @param   string $url      文件路径
      * @param   int    $position 要加载的位置
+     * @param   array  $htmlOptions
      * @return  $this|static
      */
-    public function registerScriptFile($url, $position = null)
+    public function registerScriptFile($url, $position = null, array $htmlOptions = array())
     {
         $arr = parse_url($url);
         if (stripos($url, 'www.to8to.com') != false) {
@@ -127,6 +132,6 @@ class ClientScript extends CClientScript
             $url = isset($arr['query']) ? str_replace('?' . $arr['query'], '', $url) : $url;
             $url .= '?v=' . filemtime($file);
         }
-        return parent::registerScriptFile($url, $position);
+        return parent::registerScriptFile($url, $position, $htmlOptions);
     }
 }

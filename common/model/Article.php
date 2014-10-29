@@ -27,7 +27,7 @@ use common\model,
  * @property string $description
  * @property string $addTime
  */
-class Article extends \CActiveRecord
+class Article extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name

@@ -141,7 +141,7 @@ return [
                 'class' => 'system.caching.CRedisCache',
             ],
             'urlManager'   => [
-                'class'          => 'common.component.UrlManager',
+                'class'          => 'common\component\UrlManager',
                 'showScriptName' => false,
                 'urlFormat'      => 'path',
                 'urlSuffix'      => '.html',
@@ -171,7 +171,9 @@ return [
                 'loginUrl'       => ['index/login'],
                 'allowAutoLogin' => true,
             ],
-            //'clientScript' => [],
+            'clientScript' => [
+                'class' => 'common\component\ClientScript'
+            ],
         ],
         'params'            => [
             'adminEmail' => 'admin@qq.com',

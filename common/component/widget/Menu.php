@@ -1,5 +1,8 @@
 <?php
-
+namespace common\component\widget;
+use Yii,
+    CMenu,
+    CHtml;
 Yii::import('zii.widgets.CMenu');
 
 class Menu extends CMenu

@@ -5,8 +5,9 @@
  * Date: 2014/10/9
  * Time: 14:01
  */
+namespace common\component;
 
-class UrlManager extends CUrlManager
+class UrlManager extends \CUrlManager
 {
     private $_rules=array();
 

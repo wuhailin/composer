@@ -9,10 +9,15 @@
  * @property integer $role
  * @property string $encrypt
  * @property string $name
- * @method  Admin   findByUsername($username)
+ * @method  static   findByUsername($username)
  * @method boolean  validatePassword($password)
  */
-class Admin extends CActiveRecord
+namespace common\model;
+use common\component\ActiveRecord,
+    CActiveDataProvider,
+    CDbCriteria;
+
+class Admin extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name
@@ -101,7 +106,7 @@ class Admin extends CActiveRecord
     {
         return [
             'UserBehavior' => [
-                'class' => 'common.component.behavior.UserBehavior',
+                'class' => 'common\component\behavior\UserBehavior',
             ]
         ];
     }

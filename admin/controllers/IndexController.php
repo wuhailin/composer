@@ -28,6 +28,7 @@ class IndexController extends Controller
 
     public function actionIndex()
     {
+        $model = \common\model\Article::model()->findByPk(314);
         $this->render($this->action->id, [
         ]);
     }

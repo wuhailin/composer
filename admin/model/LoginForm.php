@@ -34,7 +34,7 @@ class LoginForm extends CFormModel
     public function authenticate()
     {
         $this->_identity = new UserIdentity($this->username, $this->password);
-        $this->_identity->modelName = 'Admin';
+        $this->_identity->modelName = 'common\model\Admin';
         if(!$this->_identity->authenticate()){
             $this->addError('password', '用户或密码错误！');
         }

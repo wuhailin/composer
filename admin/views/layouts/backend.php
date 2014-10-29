@@ -89,7 +89,7 @@ $this->widget('common.component.NavBar', [
         <table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
             <tr>
                 <td valign="top" class="cltd left-menu">
-                    <?php $this->widget('common.component.widget.Menu', array(
+                    <?php $this->widget('common\component\widget\Menu', array(
                         'items' => Menus::getMenu(),
                     )); ?>
                 </td>
