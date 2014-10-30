@@ -11,6 +11,7 @@
         "nineinchnick/yii-exporter": "dev-master",
         "crisu83/yii-imagemanager": "dev-master",
         "metalguardian/yii-date-time-picker": "dev-master",
-        "giovdk21/yii-angularjs-helper": "dev-master"
+        "giovdk21/yii-angularjs-helper": "dev-master",
+        "z_bodya/yii-image": "dev-master"
     }
 }

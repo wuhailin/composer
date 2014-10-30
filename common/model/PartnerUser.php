@@ -16,8 +16,8 @@ use CActiveRecord,
  * @property string     $encrypt
  * @property string     $email
  * @property string     $money
- * @property integer    $pid
- * @property integer    $sid
+ * @property integer    $partnerID
+ * @property integer    $serverID
  * @property string     $lastIP
  * @property string     $lastTime
  * @property string     $addIP
@@ -43,15 +43,15 @@ class PartnerUser extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('username, password, encrypt, pid, sid, lastTime, addTime', 'required'),
-            array('pid, sid', 'numerical', 'integerOnly' => true),
+            array('username, password, encrypt, partnerID, serverID, lastTime, addTime', 'required'),
+            array('partnerID, serverID', 'numerical', 'integerOnly' => true),
             array('username, password', 'length', 'max' => 20),
             array('encrypt', 'length', 'max' => 6),
             array('email', 'length', 'max' => 30),
             array('money, lastIP, lastTime, addIP, addTime', 'length', 'max' => 10),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, username, password, encrypt, email, money, pid, sid, lastIP, lastTime, addIP, addTime', 'safe', 'on' => 'search'),
+            array('id, username, password, encrypt, email, money, partnerID, serverID, lastIP, lastTime, addIP, addTime', 'safe', 'on' => 'search'),
         );
     }
 
@@ -74,18 +74,18 @@ class PartnerUser extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'id'       => 'ID',
-            'username' => '用户帐号',
-            'password' => '密码',
-            'encrypt'  => '加密串',
-            'email'    => 'Email',
-            'money'    => 'Money',
-            'pid'      => '联运商ID',
-            'sid'      => '注册服务器',
-            'lastIP'   => 'Last Ip',
-            'lastTime' => 'Last Time',
-            'addIP'    => '注册IP',
-            'addTime'  => 'addTime',
+            'id'        => 'ID',
+            'username'  => '用户帐号',
+            'password'  => '密码',
+            'encrypt'   => '加密串',
+            'email'     => '邮箱',
+            'money'     => '金额',
+            'partnerID' => '联运商ID',
+            'serverID'  => '注册服务器',
+            'lastIP'    => '最后操作IP',
+            'lastTime'  => '最后操作时间',
+            'addIP'     => '注册IP',
+            'addTime'   => '增加时间',
         );
     }
 
@@ -112,8 +112,8 @@ class PartnerUser extends CActiveRecord
         $criteria->compare('encrypt', $this->encrypt, true);
         $criteria->compare('email', $this->email, true);
         $criteria->compare('money', $this->money, true);
-        $criteria->compare('pid', $this->pid);
-        $criteria->compare('sid', $this->sid);
+        $criteria->compare('partnerID', $this->partnerID);
+        $criteria->compare('serverID', $this->serverID);
         $criteria->compare('lastIP', $this->lastIP, true);
         $criteria->compare('lastTime', $this->lastTime, true);
         $criteria->compare('addIP', $this->addIP, true);

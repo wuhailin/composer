@@ -67,8 +67,8 @@ class Partner extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'userCount' => [self::STAT, 'common\model\PartnerUser', 'partnerID'],
-            'user'      => [self::HAS_MANY, 'common\model\PartnerUser', 'partnerID'],
+            'userCount' => [self::STAT, 'common\model\PartnerUser', 'parnerID'],
+            'user'      => [self::HAS_MANY, 'common\model\PartnerUser', 'parnerID'],
         );
     }
 

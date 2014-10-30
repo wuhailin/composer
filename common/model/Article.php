@@ -73,7 +73,7 @@ class Article extends CActiveRecord
         // class name for the relations automatically generated below.
         return array(
             'content' => [self::HAS_ONE, 'common\model\Body', 'id'],
-            'cate'    => [self::HAS_ONE, 'common\model\Category', 'category'],
+            'cate'    => [self::BELONGS_TO, 'common\model\Category', 'category'],
         );
     }
 
