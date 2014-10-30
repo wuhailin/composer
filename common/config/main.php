@@ -174,12 +174,6 @@ return [
             'clientScript' => [
                 'class' => 'common\component\ClientScript'
             ],
-            'image' => [
-                'class' => 'vendor.z_bodya.yii-image.CImageComponent',
-                'params' => [
-                    'directory' => '',
-                ]
-            ],
         ],
         'params'            => [
             'adminEmail' => 'admin@qq.com',
