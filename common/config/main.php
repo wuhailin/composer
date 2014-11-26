@@ -64,16 +64,16 @@ return [
                 'tablePrefix'        => '',
                 'enableProfiling'    => true,
                 'enableParamLogging' => true,
-                'emulatePrepare' => true,
+                'emulatePrepare'     => true,
                 'timeout'            => 3, // 增加数据库连接超时时间，默认3s
                 'slaves'             => [
                     [
-                        'connectionString' => 'mysql:host=localhost;dbname=test;',
-                        'username'         => 'root',
-                        'password'         => '123456',
+                        'connectionString'   => 'mysql:host=localhost;dbname=test;',
+                        'username'           => 'root',
+                        'password'           => '123456',
                         'enableProfiling'    => true,
                         'enableParamLogging' => true,
-                        'emulatePrepare' => true,
+                        'emulatePrepare'     => true,
                     ],
                 ],
             ],
@@ -81,15 +81,15 @@ return [
                 'errorAction' => 'index/error',
             ],
             /**
-             * system.base.CModule	系统模块
-             * system.caching.CDbCache	缓存
-             * system.CModule	模块
-             * system.db.ar.CActiveRecord	AR操作
-             * system.db.CDbCommand	数据库执行
-             * system.db.CDbConnection	数据库连接
-             * system.db.CDbTransaction	数据库存储
-             * system.web.auth.CDbAuthManager	权限
-             * system.web.filters.CFilterChain	过滤器
+             * system.base.CModule    系统模块
+             * system.caching.CDbCache    缓存
+             * system.CModule    模块
+             * system.db.ar.CActiveRecord    AR操作
+             * system.db.CDbCommand    数据库执行
+             * system.db.CDbConnection    数据库连接
+             * system.db.CDbTransaction    数据库存储
+             * system.web.auth.CDbAuthManager    权限
+             * system.web.filters.CFilterChain    过滤器
              */
             'log'          => [
                 'class'  => 'CLogRouter',
@@ -138,7 +138,11 @@ return [
                 ]
             ],
             'redis'        => [
-                'class' => 'system.caching.CRedisCache',
+                'class'    => 'system.caching.CRedisCache',
+                'hostname' => 'localhost',
+                'port'     => 6379,
+                'database' => 0,
+                'password' => 123456
             ],
             'urlManager'   => [
                 'class'          => 'common\component\UrlManager',
@@ -146,9 +150,8 @@ return [
                 'urlFormat'      => 'path',
                 'urlSuffix'      => '.html',
                 'rules'          => [
-                    '<_m:\w+>'             => '<_m>/index/index',
-                    '<_c:\w+>/<id:\d+>'    => '<_c>/view',
-                    '<_c:\w+>/<_a:\w+\d*>' => '<_c>/<_a>',
+                    '<_c>/<id:\d+>' => '<_c>/view',
+                    '<_c>/<_a>'     => '<_c>/<_a>',
                 ],
             ],
             'mailer'       => [
@@ -190,10 +193,10 @@ return [
         ],
         'commandMap' => [
             'migrate' => [
-                'class'        => 'system.cli.commands.MigrateCommand',
+                'class'          => 'system.cli.commands.MigrateCommand',
                 'migrationPath'  => 'application.migrates',
                 'migrationTable' => 'migrate',
-                'connectionID' => 'db',
+                'connectionID'   => 'db',
             ],
         ],
     ]

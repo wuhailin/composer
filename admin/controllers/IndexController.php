@@ -45,6 +45,11 @@ class IndexController extends Controller
      */
     public function actionLogin()
     {
+        /** @var CMemCache $memCache */
+        $memCache = Yii::app()->memCache;
+        $memCache->set('test', 1111, 10);
+        echo $memCache->get('test');
+        exit;
         $this->layout = '//layouts/main';
         if(!$this->app->user->isGuest){
             $this->redirect(array('index'));

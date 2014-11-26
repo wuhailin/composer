@@ -7,13 +7,14 @@
  */
 
 namespace common\component;
+
 /**
  * Class Controller
- * @property string $metaTitle
- * @property string $metaKeywords
- * @property string $metaDescription
+ * @property string      $metaTitle
+ * @property string      $metaKeywords
+ * @property string      $metaDescription
  * @property \CAction    $action
- * @property string $id
+ * @property string      $id
  * @package common\component
  */
 class Controller extends \CController
@@ -46,13 +47,13 @@ class Controller extends \CController
     public function init()
     {
         $this->bootstrap = \Yii::app()->bootstrap;
-        $this->app = \Yii::app();
+        $this->app       = \Yii::app();
     }
 
     public function behaviors()
     {
         return [
-            'seo' => [//SEO  需要给metaKeywords|metaDescription赋值实现
+            'seo' => [ //SEO  需要给metaKeywords|metaDescription赋值实现
                 'class' => 'vendor.crisu83.yii-seo.behaviors.SeoBehavior'
             ],
         ];
@@ -69,8 +70,8 @@ class Controller extends \CController
     }
 
     /**
-     * @param int|string     $id
-     * @param bool $throw
+     * @param int|string $id
+     * @param bool       $throw
      * @return ActiveRecord
      * @throws \CHttpException
      */
@@ -81,8 +82,8 @@ class Controller extends \CController
          */
         $model = ActiveRecord::model($this->modelName);
         $model = $model->findByPk($id);
-        if($throw && null === $model){
-            throw new \CHttpException(404,'The requested page does not exist.');
+        if ($throw && null === $model) {
+            throw new \CHttpException(404, 'The requested page does not exist.');
         }
         return $model;
     }

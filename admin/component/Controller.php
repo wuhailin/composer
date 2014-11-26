@@ -11,28 +11,31 @@ class Controller extends \common\component\Controller
     public function init()
     {
         parent::init();
-        $this->layout = $this->app->user->isGuest ? '//layouts/main' : '//layouts/backend';
+        $this->layout    = $this->app->user->isGuest ? '//layouts/main' : '//layouts/backend';
         $this->modelName = ucfirst($this->id);
     }
 
     public function accessRules()
     {
-        return array_merge(parent::accessRules(), [
+        return array_merge(
+            parent::accessRules(),
             [
-                'allow',
-                'actions' => ['login', 'error', 'captcha'],//所有用户可查看
-                'users'   => ['*'],
-            ],
-            [
-                'allow',
-                'actions' => ['index', 'logout'],//登录用户查看
-                'users'   => ['@'],
-            ],
-            [
-                'deny',
-                'users' => ['*'],
+                [
+                    'allow',
+                    'actions' => ['login', 'error', 'captcha'], //所有用户可查看
+                    'users'   => ['*'],
+                ],
+                [
+                    'allow',
+                    'actions' => ['index', 'logout'], //登录用户查看
+                    'users'   => ['@'],
+                ],
+                [
+                    'deny',
+                    'users' => ['*'],
+                ]
             ]
-        ]);
+        );
     }
 
     public function behaviors()
@@ -42,11 +45,11 @@ class Controller extends \common\component\Controller
 
     public function getBreadcrumbs()
     {
-        if(isset($this->breadcrumbs)){
+        if (isset($this->breadcrumbs)) {
             return $this->breadcrumbs;
         }
-        $action = $this->action->id;
-        $model = $this->model;
+        $action      = $this->action->id;
+        $model       = $this->model;
         $breadcrumbs = [
             $model->modelName = ['index'],
         ];

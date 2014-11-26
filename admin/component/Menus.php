@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: hailin.wu
@@ -11,27 +12,27 @@ class Menus
 
     public static function getMenu()
     {
-        if(isset(self::$menus)){
+        if (isset(self::$menus)) {
             return self::$menus;
         }
         /**
          * @var CWebApplication $yii
          */
-        $yii = Yii::app();
+        $yii         = Yii::app();
         self::$menus = array(
             array(
                 'label' => '系统设置',
             ),
-            'config' => array(
+            'config'  => array(
                 'label' => '基本配置',
-                'url' => $yii->createUrl('config'),
+                'url'   => $yii->createUrl('config'),
             ),
             array(
                 'label' => '测试',
             ),
             'profile' => array(
                 'label' => '测试1',
-                'url' => '#'
+                'url'   => '#'
             ),
             array(
                 'end' => true,
