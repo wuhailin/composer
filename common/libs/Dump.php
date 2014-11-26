@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: ゛嗨⑩啉°
  * Date: 14-9-21
  * Time: 下午2:52
  */
-
 class Dump
 {
     public function __construct()

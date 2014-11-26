@@ -21,6 +21,10 @@ class UserBehavior extends \CActiveRecordBehavior
 
     public function validatePassword($password = null)
     {
-        return $this->owner->getAttribute($this->passwordField) == substr(sha1(md5($password).$this->owner->getAttribute($this->encryptField)), 4, 20);
+        return $this->owner->getAttribute($this->passwordField) == substr(
+            sha1(md5($password) . $this->owner->getAttribute($this->encryptField)),
+            4,
+            20
+        );
     }
 } 

@@ -1,8 +1,10 @@
 <?php
 namespace common\component\widget;
+
 use Yii,
     CMenu,
     CHtml;
+
 Yii::import('zii.widgets.CMenu');
 
 class Menu extends CMenu
@@ -20,10 +22,11 @@ class Menu extends CMenu
         $classes = array('nav', 'clm');
         if (!empty($classes)) {
             $classes = implode(' ', $classes);
-            if (isset($this->htmlOptions['class']))
+            if (isset($this->htmlOptions['class'])) {
                 $this->htmlOptions['class'] .= ' ' . $classes;
-            else
+            } else {
                 $this->htmlOptions['class'] = $classes;
+            }
         }
     }
 
@@ -41,18 +44,22 @@ class Menu extends CMenu
                 } else {
                     $options = isset($item['itemOptions']) ? $item['itemOptions'] : array();
                     $classes = array();
-                    if ($item['active'] && $this->activeCssClass != '')
+                    if ($item['active'] && $this->activeCssClass != '') {
                         $classes[] = $this->activeCssClass;
-                    if ($this->itemCssClass !== null)
+                    }
+                    if ($this->itemCssClass !== null) {
                         $classes[] = $this->itemCssClass;
-                    if (isset($item['disabled']))
+                    }
+                    if (isset($item['disabled'])) {
                         $classes[] = 'disabled';
+                    }
                     if (!empty($classes)) {
                         $classes = implode(' ', $classes);
-                        if (!empty($options['class']))
+                        if (!empty($options['class'])) {
                             $options['class'] .= ' ' . $classes;
-                        else
+                        } else {
                             $options['class'] = $classes;
+                        }
                     }
                     echo CHtml::openTag('li', $options);
                     $options = $this->htmlOptions;
@@ -61,9 +68,10 @@ class Menu extends CMenu
                         $options['class'] .= ' accordion-body collapse' . (isset($item['in']) ? ' in' : '');
                         $item['label'] = '<i class="icon-clm pull-left"></i> ' . $item['label'];
                         $item['url'] .= $options['id'];
-                        if (!isset($item['linkOptions']))
+                        if (!isset($item['linkOptions'])) {
                             $item['linkOptions'] = array();
-                        $item['linkOptions']['class'] = 'accordion-toggle' . (isset($item['in']) ? '' : ' collapsed');
+                        }
+                        $item['linkOptions']['class']       = 'accordion-toggle' . (isset($item['in']) ? '' : ' collapsed');
                         $item['linkOptions']['data-toggle'] = 'collapse';
                     } else {
                         $item['label'] = '· ' . $item['label'];
@@ -71,8 +79,9 @@ class Menu extends CMenu
                     echo $this->renderMenuItem($item);
                     if (isset($item['header'])) {
                         echo CHtml::openTag('ul', $options);
-                    } else
+                    } else {
                         echo '</li>';
+                    }
                 }
             }
             echo '</ul>';
@@ -83,15 +92,16 @@ class Menu extends CMenu
     {
         if (isset($item['icon'])) {
             if (strpos($item['icon'], 'icon') === false) {
-                $pieces = explode(' ', $item['icon']);
+                $pieces       = explode(' ', $item['icon']);
                 $item['icon'] = 'icon-' . implode(' icon-', $pieces);
             }
 //            if ($item['active'])
 //                $item['icon'] .= ' icon-white';
             $item['label'] = '<i class="' . $item['icon'] . '"></i> ' . $item['label'];
         }
-        if (!isset($item['linkOptions']))
+        if (!isset($item['linkOptions'])) {
             $item['linkOptions'] = array();
+        }
         return CHtml::link('<span>' . $item['label'] . '</span>', $item['url'], $item['linkOptions']);
     }
 
@@ -101,21 +111,24 @@ class Menu extends CMenu
         foreach ($items as $i => $item) {
             if (isset($item['end'])) {
                 $n = array_pop($header);
-                if (isset($items[$n]['visible']))
+                if (isset($items[$n]['visible'])) {
                     $item['visible'] = $items[$n]['visible'];
-                else
+                } else {
                     unset($item['visible']);
+                }
             } else {
-                if (!isset($item['itemOptions']))
+                if (!isset($item['itemOptions'])) {
                     $item['itemOptions'] = array();
+                }
                 if (!isset($item['url'])) {
-                    $item['url'] = '#';
+                    $item['url']    = '#';
                     $item['header'] = true;
                     array_push($header, $i);
                 }
                 if (isset($item['active'])) {
-                    foreach ($header as $n)
+                    foreach ($header as $n) {
                         $items[$n]['in'] = true;
+                    }
                 }
             }
             $items[$i] = $item;

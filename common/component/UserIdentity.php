@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: hailin.wu
  * Date: 14-9-22
  * Time: 下午5:45
  */
-
 class UserIdentity extends CUserIdentity
 {
     /**
@@ -13,7 +13,7 @@ class UserIdentity extends CUserIdentity
      */
     public $modelName;
     /**
-     * @var Admin
+     * @var common\model\Admin
      */
     public $model;
     /**
@@ -23,16 +23,15 @@ class UserIdentity extends CUserIdentity
 
     public function authenticate()
     {
-        if($this->modelName)
-        $this->model = CActiveRecord::model($this->modelName);
+        if ($this->modelName) {
+            $this->model = CActiveRecord::model($this->modelName);
+        }
         $this->model = $this->model->findByUsername($this->username);
-        if(null === $this->model){
+        if (null === $this->model) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
-        }
-        elseif(!$this->model->validatePassword($this->password)){
+        } elseif (!$this->model->validatePassword($this->password)) {
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
-        }
-        else{
+        } else {
             $this->login();
         }
         return self::ERROR_NONE === $this->errorCode;

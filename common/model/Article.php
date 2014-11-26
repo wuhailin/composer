@@ -60,7 +60,11 @@ class Article extends CActiveRecord
             array('description', 'length', 'max' => 255),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, category, type, orderNO, click, title, shortTitle, color, creator, source, picture, senddate, keyword, scores, goodpost, notpost, description, addTime', 'safe', 'on' => 'search'),
+            array(
+                'id, category, type, orderNO, click, title, shortTitle, color, creator, source, picture, senddate, keyword, scores, goodpost, notpost, description, addTime',
+                'safe',
+                'on' => 'search'
+            ),
         );
     }
 

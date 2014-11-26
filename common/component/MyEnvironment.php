@@ -102,7 +102,7 @@ class MyEnvironment extends Environment
             throw new \Exception('主配置文件"' . $fileMainConfig . '"找不到.');
         }
         $configMain = require $fileMainConfig;
-        $config = self::mergeArray($config, $configMain);
+        $config     = self::mergeArray($config, $configMain);
 
         $fileSpecficFile = $dir . '/config/mode_' . strtolower($this->mode) . '.php';
         if (file_exists($fileSpecficFile)) {

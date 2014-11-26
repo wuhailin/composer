@@ -1,5 +1,6 @@
 <?php
 namespace common\model;
+
 /**
  * This is the model class for table "category".
  *
@@ -54,7 +55,13 @@ class Category extends \CActiveRecord
         // class name for the relations automatically generated below.
         return array(
             'parent'   => [self::HAS_ONE, 'common\model\Category', 'pid', 'condition' => 't.enabled = 1'],
-            'children' => [self::HAS_MANY, 'common\model\Category', 'pid', 'condition' => 't.enabled = 1', 'order' => 'orderNO DESC, id'],
+            'children' => [
+                self::HAS_MANY,
+                'common\model\Category',
+                'pid',
+                'condition' => 't.enabled = 1',
+                'order'     => 'orderNO DESC, id'
+            ],
             'article'  => [self::HAS_MANY, 'common\model\Article', 'category']
         );
     }

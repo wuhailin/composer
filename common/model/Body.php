@@ -1,5 +1,6 @@
 <?php
 namespace common\model;
+
 /**
  * This is the model class for table "body".
  *

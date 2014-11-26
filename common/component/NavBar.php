@@ -6,6 +6,7 @@
  * Time: 13:41
  */
 Yii::import('bootstrap.widgets.TbNavbar');
+
 class NavBar extends TbNavbar
 {
     /**
@@ -23,7 +24,7 @@ class NavBar extends TbNavbar
         echo CHtml::openTag('div', $this->htmlOptions);
         echo '<div class="navbar-inner"><div class="' . $this->getContainerCssClass() . '">';
 
-        $collapseId = null === $this->collapseName ? '#'.TbCollapse::getNextContainerId() : $this->collapseName;
+        $collapseId = null === $this->collapseName ? '#' . TbCollapse::getNextContainerId() : $this->collapseName;
 
         if ($this->collapse !== false) {
             echo '<a class="btn btn-navbar" data-toggle="collapse" data-target="' . $collapseId . '">';
